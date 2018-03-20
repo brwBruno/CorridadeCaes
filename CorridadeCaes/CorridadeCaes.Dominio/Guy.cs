@@ -17,22 +17,30 @@ namespace CorridadeCaes.Dominio
 
         public void AtualizarLabels()
         {
+            meuRadioButton = new RadioButton();
+            meuLabel = new Label();
 
+            meuRadioButton.Text = nome + "tem" + dinheiro;
+            meuLabel.Text = minhaBet.PegaDescricao();
         }
 
-        public void LimpraBet()
+        public void LimparBet()
         {
-
+            minhaBet.montante = 0;
         }
 
-        public bool ColocaBet()
+        public bool ColocaBet(int _valorAposta, int _cachorro)
         {
-            
+            minhaBet.apostador = this;
+            minhaBet.montante = _valorAposta;
+            minhaBet.cachorro = _cachorro;
+            return true;
         }
 
-        public void Recolhe()
+        public void Recolhe(int _cachorroVencedor)
         {
-
+            dinheiro += minhaBet.Pagamento(_cachorroVencedor);
+            LimparBet();
         }
     }
 }
