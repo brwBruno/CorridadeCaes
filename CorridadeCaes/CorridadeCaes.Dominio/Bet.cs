@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CorridadeCaes.Dominio
 {
-    class Bet
+    public class Bet
     {
         public int montante;
         public int cachorro;
@@ -17,7 +17,7 @@ namespace CorridadeCaes.Dominio
         {
             if (apostador != null)
             {
-                string descricao = apostador.nome + "aposta R$" + montante + " no cachorro numero : " + cachorro;
+                string descricao = apostador.nome + " aposta R$" + montante + " no cachorro numero : " + cachorro;
                 return descricao;
             }
             else

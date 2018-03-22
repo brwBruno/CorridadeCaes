@@ -10,18 +10,17 @@ namespace CorridadeCaes.Dominio
 {
     public class GreyHound
     {
+        public int numero;
         public int posicaoInicial;
         public int comprimentoCorrida;
-        public PictureBox minhaCaixaFoto = null;
-        public int localizacao = 0;
-        public Random minhaRandon;
+        public PictureBox minhaCaixaFoto;
+        public int localizacao;
 
-        public bool Correr()
+        public bool Correr(Random minhaRandom)
         {
-            minhaRandon = new Random();
-            localizacao = minhaRandon.Next(1, 4);
+            localizacao = Randomico(minhaRandom);
             Point ponto = minhaCaixaFoto.Location;
-            ponto.X = localizacao;
+            ponto.X += localizacao;
             minhaCaixaFoto.Location = ponto;
             if (minhaCaixaFoto.Location.X >= 542)
             {
@@ -31,6 +30,11 @@ namespace CorridadeCaes.Dominio
             {
                 return false;
             }
+        }
+
+        public int Randomico(Random minhaRandon)
+        {
+            return minhaRandon.Next(5);
         }
 
         public void PegaPosicaoInicial()

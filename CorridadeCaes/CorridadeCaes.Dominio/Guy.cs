@@ -7,10 +7,10 @@ using System.Windows.Forms;
 
 namespace CorridadeCaes.Dominio
 {
-    class Guy
+    public class Guy
     {
         public string nome;
-        public Bet minhaBet;
+        public Bet minhaBet = new Bet();
         public int dinheiro;
         public RadioButton meuRadioButton;
         public Label meuLabel;
@@ -31,10 +31,14 @@ namespace CorridadeCaes.Dominio
 
         public bool ColocaBet(int _valorAposta, int _cachorro)
         {
-            minhaBet.apostador = this;
-            minhaBet.montante = _valorAposta;
-            minhaBet.cachorro = _cachorro;
-            return true;
+            if (dinheiro >= _valorAposta)
+            {
+                minhaBet.apostador = this;
+                minhaBet.montante = _valorAposta;
+                minhaBet.cachorro = _cachorro;
+                return true;
+            }
+            return false;
         }
 
         public void Recolhe(int _cachorroVencedor)
