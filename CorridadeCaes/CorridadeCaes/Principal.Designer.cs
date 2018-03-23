@@ -298,6 +298,7 @@
             // 
             // timer1
             // 
+            this.timer1.Interval = 50;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Principal
@@ -312,7 +313,9 @@
             this.Controls.Add(this.ptbCachorro1);
             this.Controls.Add(this.ptbPista);
             this.Name = "Principal";
-            this.Text = "Form1";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Corrida de Cães";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ptbPista)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbCachorro1)).EndInit();

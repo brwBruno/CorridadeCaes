@@ -37,7 +37,6 @@ namespace CorridadeCaes.Dominio
             {
                 return -montante;
             }
-
         }
     }
 }

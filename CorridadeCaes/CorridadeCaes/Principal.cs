@@ -163,32 +163,21 @@ namespace CorridadeCaes
             HabilitarRad();
         }
 
-        private int Checado()
+        private bool Checado()
         {
-            if (rbtGuy1.Checked == true)
+            if (cara[0].RetornaBet() > 0 && cara[1].RetornaBet() > 0 && cara[2].RetornaBet() > 0)
             {
-                return 1;
+                return true;
             }
-            else if (rbtGuy2.Checked == true)
-            {
-                return 2;
-            }
-            else if (rbtGuy3.Checked == true)
-            {
-                rbtGuy1.Checked = true;
-                return 3;
-            }
-            else
-            {
-                return 0;
-            }
+            return false;
         }
 
         private void btnApostar_Click(object sender, EventArgs e)
         {
             Apostas();
-            if (Checado() >= 3)
+            if (Checado())
             {
+                MessageBox.Show("Todos fizeram suas aposta", "Sucesso", MessageBoxButtons.OK);
                 ControleBotaoA();
                 DesabilitarRad();
             }

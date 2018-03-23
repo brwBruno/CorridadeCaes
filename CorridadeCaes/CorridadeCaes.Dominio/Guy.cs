@@ -41,6 +41,11 @@ namespace CorridadeCaes.Dominio
             return false;
         }
 
+        public int RetornaBet()
+        {
+            return minhaBet.montante;
+        }
+
         public void Recolhe(int _cachorroVencedor)
         {
             dinheiro += minhaBet.Pagamento(_cachorroVencedor);
